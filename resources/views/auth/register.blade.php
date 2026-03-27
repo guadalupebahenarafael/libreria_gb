@@ -12,6 +12,7 @@
     @section('content')
 
     <h1>REGISTRO</h1>
+    <br>
 
     <form action="{{ route('registro.store') }}"method="POST">
 
@@ -27,14 +28,28 @@
         <br>
         <input type="password" name="password_confirmation" placeholder="Confirmar contraseña" class="form-control">
         <br>
-        <div class="form-check">
+        @if(auth()->check() && auth()->user()->is_admin)
+          <div class="form-check">
             <input type="checkbox" name="is_admin" value="1">
             <label for="is_admin">Es administrador</label>
         </div>
-
-        <br><br>
+        @endif
+        <br>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+    <div class="d-flex justify-content-end mb-2">
+
+    @if(auth()->check() && auth()->user()->is_admin)
+        <a href="{{ route('libros.index') }}" class="btn btn-danger">
+            <i class="fa-solid fa-rotate-left"></i> Regresar
+        </a>
+    @else
+        <a href="{{ route('acceso') }}" class="btn btn-danger">
+            <i class="fa-solid fa-rotate-left"></i> Regresar
+        </a>
+    @endif
+
+</div>
      @endsection
 </body>
 </html>

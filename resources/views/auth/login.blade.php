@@ -10,7 +10,7 @@
 
     @extends('layouts.app')
     @section('content')
-    <h1>Inicio de sesión</h1>
+    <center><h1>Inicio de sesión</h1></center>
     <form action="{{ route('acceso.store') }}" method="POST">
 
         @csrf
@@ -22,6 +22,11 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
 
     </form>
+     <div class="d-flex justify-content-end mb-2">
+        <a href="{{ route('registro') }}" class="btn btn-outline-success">
+             Crear cuenta
+        </a>
+    </div>
     @endsection
 </body>
 </html>

@@ -29,13 +29,13 @@ class AuthController extends Controller
             'email' => $request -> email,
             'phone' => $request -> phone,
             'password' =>  Hash::make($request -> password), 
-            'is_admin' => $request -> has('is_admin')      
+            'is_admin' => $request -> has('is_admin') ? 1 : 0       
         ]);
 
         // Iniciar sesión de forma automatica
         Auth::login($user);
 
-        return redirect()->route('libros.index');
+        return redirect()->route('registro');
     }
 
     // Metodo para regresar vista de inicio de sesión

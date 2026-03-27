@@ -24,7 +24,7 @@
     </form>
     @if(auth()->user()->is_admin)
         <a href="{{ route('admin-dashboard') }}" class="btn btn-secondary">
-            Panel Admin
+            Panel del administrador
         </a>
     @endif
     </div>
