@@ -7,10 +7,10 @@
 </head>
 
 <body>
-<h1>Inicio de sesión</h1>
+
     @extends('layouts.app')
     @section('content')
-
+    <h1>Inicio de sesión</h1>
     <form action="{{ route('acceso.store') }}" method="POST">
 
         @csrf
